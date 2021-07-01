@@ -23,21 +23,89 @@ namespace BalancedBracketsNS
          * parameter str - to be validated
          * returns true if balanced, false otherwise
         */
+
+
+
         public static bool HasBalancedBrackets(String str)
         {
             int brackets = 0;
             foreach (char ch in str.ToCharArray())
             {
-                if (ch == '[')
+                if (ch == '[' && str.IndexOf('[') < str.IndexOf(']') && str.Contains(']'))
                 {
                     brackets++;
                 }
-                else if (ch == ']')
+                else if (ch == ']') // && str.IndexOf(']') > str.IndexOf('['))
                 {
                     brackets--;
                 }
+                else if ((!str.Contains('[')) && (!str.Contains(']')))
+                {
+                    return false;
+                }
+
             }
             return brackets == 0;
         }
+
+        /* FORMAT OF ORIGINAL CODE BELOW
+         * 
+         * 
+        public static bool HasBalancedBrackets(String str)
+        {
+            int brackets = 0;
+            foreach (char ch in str.ToCharArray())
+            {
+                if (ch == '[' && str.IndexOf('[') < str.IndexOf(']'))
+                {
+                    brackets++;
+                }
+                else if (ch == ']') // && str.IndexOf(']') > str.IndexOf('['))
+                {
+                    brackets--;
+                }
+
+            }
+            return brackets == 0;
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+        public static void ()
+        {
+            string searchString = "\u00ADm";
+            string s1 = "ani\u00ADmal";
+            string s2 = "animal";
+
+            Console.WriteLine(s1.IndexOf(searchString, 2, 4));
+            Console.WriteLine(s2.IndexOf(searchString, 2, 4));
+
+        }
+        */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
